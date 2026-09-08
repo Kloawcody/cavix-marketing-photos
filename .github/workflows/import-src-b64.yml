@@ -1,0 +1,31 @@
+name: import-src-b64
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-src-b64.yml'
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and extract marketing photo base64 sources
+        run: |
+          set -euo pipefail
+          curl -fsSL "https://litter.catbox.moe/3qnjw8.gz" -o /tmp/src.tar.gz
+          rm -rf src
+          mkdir -p src
+          tar -xzf /tmp/src.tar.gz
+          test "$(find src -type f -name '*.b64.*' | wc -l)" -eq 76
+          # spot-check first chunk looks like jpeg base64
+          head -c 4 src/01-people-construction-feed.jpg.b64.00 | grep -q '/9j/'
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A src
+          git status
+          git diff --cached --quiet || git commit -m "Add marketing photo sources batches 00-14"
+          git push
