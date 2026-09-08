@@ -1,0 +1,44 @@
+name: import-html-pages
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/import-html-pages.yml'
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download self-contained HTML pages
+        run: |
+          mkdir -p "$(dirname index.html)" && curl -fsSL "https://litter.catbox.moe/rwdg4u.html" -o "index.html" && test -s "index.html" && head -c 15 "index.html" && echo " ok index.html"
+          mkdir -p "$(dirname p/01-people-construction-feed.html)" && curl -fsSL "https://litter.catbox.moe/v2uhei.html" -o "p/01-people-construction-feed.html" && test -s "p/01-people-construction-feed.html" && head -c 15 "p/01-people-construction-feed.html" && echo " ok p/01-people-construction-feed.html"
+          mkdir -p "$(dirname p/02-people-beauty-feed.html)" && curl -fsSL "https://litter.catbox.moe/5zvnub.html" -o "p/02-people-beauty-feed.html" && test -s "p/02-people-beauty-feed.html" && head -c 15 "p/02-people-beauty-feed.html" && echo " ok p/02-people-beauty-feed.html"
+          mkdir -p "$(dirname p/03-people-retail-feed.html)" && curl -fsSL "https://litter.catbox.moe/w61fnt.html" -o "p/03-people-retail-feed.html" && test -s "p/03-people-retail-feed.html" && head -c 15 "p/03-people-retail-feed.html" && echo " ok p/03-people-retail-feed.html"
+          mkdir -p "$(dirname p/04-people-resale-feed.html)" && curl -fsSL "https://litter.catbox.moe/4bmcd6.html" -o "p/04-people-resale-feed.html" && test -s "p/04-people-resale-feed.html" && head -c 15 "p/04-people-resale-feed.html" && echo " ok p/04-people-resale-feed.html"
+          mkdir -p "$(dirname p/05-people-construction-story.html)" && curl -fsSL "https://litter.catbox.moe/8119sj.html" -o "p/05-people-construction-story.html" && test -s "p/05-people-construction-story.html" && head -c 15 "p/05-people-construction-story.html" && echo " ok p/05-people-construction-story.html"
+          mkdir -p "$(dirname p/06-location-warehouse.html)" && curl -fsSL "https://litter.catbox.moe/aoob0q.html" -o "p/06-location-warehouse.html" && test -s "p/06-location-warehouse.html" && head -c 15 "p/06-location-warehouse.html" && echo " ok p/06-location-warehouse.html"
+          mkdir -p "$(dirname p/07-location-jobsite.html)" && curl -fsSL "https://litter.catbox.moe/tweq4m.html" -o "p/07-location-jobsite.html" && test -s "p/07-location-jobsite.html" && head -c 15 "p/07-location-jobsite.html" && echo " ok p/07-location-jobsite.html"
+          mkdir -p "$(dirname p/08-location-salon-backbar.html)" && curl -fsSL "https://litter.catbox.moe/mfvj5a.html" -o "p/08-location-salon-backbar.html" && test -s "p/08-location-salon-backbar.html" && head -c 15 "p/08-location-salon-backbar.html" && echo " ok p/08-location-salon-backbar.html"
+          mkdir -p "$(dirname p/09-location-retail-stockroom.html)" && curl -fsSL "https://litter.catbox.moe/joondk.html" -o "p/09-location-retail-stockroom.html" && test -s "p/09-location-retail-stockroom.html" && head -c 15 "p/09-location-retail-stockroom.html" && echo " ok p/09-location-retail-stockroom.html"
+          mkdir -p "$(dirname p/10-location-resale-showroom.html)" && curl -fsSL "https://litter.catbox.moe/ert1fv.html" -o "p/10-location-resale-showroom.html" && test -s "p/10-location-resale-showroom.html" && head -c 15 "p/10-location-resale-showroom.html" && echo " ok p/10-location-resale-showroom.html"
+          mkdir -p "$(dirname p/11-location-warehouse-banner.html)" && curl -fsSL "https://litter.catbox.moe/ke1t72.html" -o "p/11-location-warehouse-banner.html" && test -s "p/11-location-warehouse-banner.html" && head -c 15 "p/11-location-warehouse-banner.html" && echo " ok p/11-location-warehouse-banner.html"
+          mkdir -p "$(dirname p/12-location-jobsite-story.html)" && curl -fsSL "https://litter.catbox.moe/1vegby.html" -o "p/12-location-jobsite-story.html" && test -s "p/12-location-jobsite-story.html" && head -c 15 "p/12-location-jobsite-story.html" && echo " ok p/12-location-jobsite-story.html"
+          mkdir -p "$(dirname p/13-product-know-shelf.html)" && curl -fsSL "https://litter.catbox.moe/etv9lg.html" -o "p/13-product-know-shelf.html" && test -s "p/13-product-know-shelf.html" && head -c 15 "p/13-product-know-shelf.html" && echo " ok p/13-product-know-shelf.html"
+          mkdir -p "$(dirname p/14-product-construction-today.html)" && curl -fsSL "https://litter.catbox.moe/f17l3z.html" -o "p/14-product-construction-today.html" && test -s "p/14-product-construction-today.html" && head -c 15 "p/14-product-construction-today.html" && echo " ok p/14-product-construction-today.html"
+          mkdir -p "$(dirname p/15-product-beauty-inventory.html)" && curl -fsSL "https://litter.catbox.moe/zcy3hs.html" -o "p/15-product-beauty-inventory.html" && test -s "p/15-product-beauty-inventory.html" && head -c 15 "p/15-product-beauty-inventory.html" && echo " ok p/15-product-beauty-inventory.html"
+          mkdir -p "$(dirname p/16-product-item-detail.html)" && curl -fsSL "https://litter.catbox.moe/phl1bu.html" -o "p/16-product-item-detail.html" && test -s "p/16-product-item-detail.html" && head -c 15 "p/16-product-item-detail.html" && echo " ok p/16-product-item-detail.html"
+          mkdir -p "$(dirname p/17-product-industries-banner.html)" && curl -fsSL "https://litter.catbox.moe/5jymom.html" -o "p/17-product-industries-banner.html" && test -s "p/17-product-industries-banner.html" && head -c 15 "p/17-product-industries-banner.html" && echo " ok p/17-product-industries-banner.html"
+          mkdir -p "$(dirname p/18-product-spreadsheet-story.html)" && curl -fsSL "https://litter.catbox.moe/trcurc.html" -o "p/18-product-spreadsheet-story.html" && test -s "p/18-product-spreadsheet-story.html" && head -c 15 "p/18-product-spreadsheet-story.html" && echo " ok p/18-product-spreadsheet-story.html"
+          mkdir -p "$(dirname p/19-location-shop-desk.html)" && curl -fsSL "https://litter.catbox.moe/j4tz9j.html" -o "p/19-location-shop-desk.html" && test -s "p/19-location-shop-desk.html" && head -c 15 "p/19-location-shop-desk.html" && echo " ok p/19-location-shop-desk.html"
+          mkdir -p "$(dirname p/20-location-beauty-story.html)" && curl -fsSL "https://litter.catbox.moe/k24nkb.html" -o "p/20-location-beauty-story.html" && test -s "p/20-location-beauty-story.html" && head -c 15 "p/20-location-beauty-story.html" && echo " ok p/20-location-beauty-story.html"
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html p/*.html
+          git status
+          git diff --cached --quiet || git commit -m "Add self-contained HTML photo download pages"
+          git push
